@@ -30,7 +30,7 @@ function initModal() {
                     <div class="relative">
                         <div id="modalInnerForm" class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-2xl border border-blue-50">
                             <div class="mb-10">
-                                <h3 class="text-3xl font-bold text-blue-950 mb-3">Vize Danışmanlık Formu</h3>
+                                <h3 class="text-3xl font-bold text-blue-950 mb-3">Başvuru Formu</h3>
                                 <p class="text-slate-500">Lütfen aşağıdaki bilgileri eksiksiz doldurunuz.</p>
                             </div>
                             <form id="globalAppForm" class="space-y-5">
