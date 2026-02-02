@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Initialize Countries Grid (if present)
     initCountriesGrid();
+
+    // 6. Initialize FAQ Accordion
+    initFAQ();
 });
 
 // --- Modal Logic ---
@@ -524,4 +527,22 @@ async function initCountriesGrid() {
         console.error('Error loading countries grid:', error);
         grid.innerHTML = '<p class="col-span-full text-center text-red-500">Ülkeler yüklenirken bir hata oluştu.</p>';
     }
+}
+
+// --- FAQ Accordion Logic ---
+function initFAQ() {
+    // Fallback for browsers that don't support name="faq" on details
+    const details = document.querySelectorAll('details[name="faq"]');
+
+    details.forEach(detail => {
+        detail.addEventListener('toggle', (e) => {
+            if (detail.open) {
+                details.forEach(other => {
+                    if (other !== detail && other.hasAttribute('open')) {
+                        other.removeAttribute('open');
+                    }
+                });
+            }
+        });
+    });
 }
