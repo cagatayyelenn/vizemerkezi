@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /wordpress
+
+Sitemap: https://vhsvizemerkezi.com/sitemap.xml
