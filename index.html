@@ -137,6 +137,44 @@
         .dropdown-container.active .rotate-arrow {
             transform: rotate(180deg);
         }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .delay-100 {
+            animation-delay: 100ms;
+        }
+
+        .delay-200 {
+            animation-delay: 200ms;
+        }
+
+        .delay-300 {
+            animation-delay: 300ms;
+        }
+
+        .delay-400 {
+            animation-delay: 400ms;
+        }
+
+        .delay-500 {
+            animation-delay: 500ms;
+        }
     </style>
     <script type="importmap">
 {
@@ -248,171 +286,87 @@
     </div>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-32 hero-bg min-h-screen" style="padding-top: 9%;    padding-bottom: 0px;">
-        <div class="container mx-auto px-6">
-            <div class="max-w-6xl mx-auto">
-                <div class="mb-12 relative group z-0 mt-32 md:mt-0">
-                    <div
-                        class="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-400 rounded-4xl blur opacity-10 group-hover:opacity-20 transition duration-1000">
-                    </div>
-                    <div class="relative overflow-hidden rounded-4xl shadow-2xl border border-white/50">
-                        <img src="https://vhsvizemerkezi.com/assets/img/vizebasvurumerkezi.jpg"
-                            alt="VHS Vize Merkezi Karşılama" class="w-full h-[250px] md:h-[450px] object-cover" />
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-950/40 via-transparent to-transparent">
-                        </div>
-                    </div>
-                </div>
-                <!-- Adım 2: İşlem Türü (Scrollable)  
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 mb-12">
-                     
-                    <div class="relative dropdown-container" id="country-dropdown">
-                        <div
-                            class="selector-box bg-white p-6 rounded-2xl shadow-xl border border-slate-100 flex items-center justify-between hover:shadow-2xl cursor-pointer trigger">
-                            <div class="flex items-center gap-4">
-                                <span class="text-3xl" id="selected-country-flag"><svg class="w-8 h-8 text-slate-400"
-                                        fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                            d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                                    </svg></span>
-                                <div>
-                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Ülke
-                                        Seçimi</p>
-                                    <p class="text-lg font-extrabold text-blue-950" id="selected-country-name">
-                                        Ülke Seçiniz</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-300 rotate-arrow" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg>
-                        </div>
+    <section class="relative min-h-screen flex items-center justify-center py-32 overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://vhsvizemerkezi.com/assets/img/vizebasvurumerkezi.jpg" alt="Background"
+                class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-slate-900/80"></div>
+        </div>
 
-                        <div
-                            class="dropdown-menu absolute top-full left-0 right-0 mt-4 bg-white rounded-2xl shadow-2xl border border-slate-100 z-50">
-                            <div class="p-4 space-y-1">
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇧🇬', 'Bulgaristan')"><span>🇧🇬</span> Bulgaristan</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇩🇪', 'Almanya')"><span>🇩🇪</span> Almanya</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇺🇸', 'Amerika')"><span>🇺🇸</span> Amerika</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇫🇷', 'Fransa')"><span>🇫🇷</span> Fransa</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇮🇹', 'İtalya')"><span>🇮🇹</span> İtalya</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇬🇧', 'İngiltere')"><span>🇬🇧</span> İngiltere</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇪🇸', 'İspanya')"><span>🇪🇸</span> İspanya</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇨🇦', 'Kanada')"><span>🇨🇦</span> Kanada</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇳🇱', 'Hollanda')"><span>🇳🇱</span> Hollanda</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇧🇪', 'Belçika')"><span>🇧🇪</span> Belçika</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇦🇹', 'Avusturya')"><span>🇦🇹</span> Avusturya</div>
-                                <div class="p-3 hover:bg-blue-50 rounded-xl cursor-pointer flex items-center gap-3 font-bold text-blue-950 transition-colors"
-                                    onclick="selectCountry('🇬🇷', 'Yunanistan')"><span>🇬🇷</span> Yunanistan</div>
-                            </div>
-                        </div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
 
-
-                    </div>
-                    
-                    <div class="relative dropdown-container" id="process-dropdown">
-                        <div
-                            class="selector-box bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hover:border-blue-500 flex items-center justify-between cursor-pointer trigger">
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 012-2h2a2 2 0 012 2v1m-4 0h4"
-                                            stroke-width="1.5"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">İşlem
-                                        Türü</p>
-                                    <p class="text-base font-extrabold text-blue-950" id="selected-process-name">İşlem
-                                        Seçiniz</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-300 rotate-arrow" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round"></path>
-                            </svg>
-                        </div>
-
-                        <div
-                            class="dropdown-menu absolute top-full left-0 right-0 mt-4 bg-white rounded-2xl shadow-2xl border border-slate-100 z-50">
-                            <div
-                                class="p-5 bg-blue-50/40 sticky top-0 z-10 flex items-center justify-between border-b border-blue-100 backdrop-blur-sm">
-                                <span class="text-sm font-bold text-blue-950">Vize İşlemleri</span>
-                                <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <div class="p-5 space-y-4">
-                                <div class="text-sm font-bold text-slate-500 hover:text-blue-600 cursor-pointer transition-colors"
-                                    onclick="selectProcess('Konsolosluk İşlemleri')">Konsolosluk İşlemleri</div>
-                                <div class="text-sm font-bold text-slate-500 hover:text-blue-600 cursor-pointer transition-colors leading-snug"
-                                    onclick="selectProcess('Randevu ve Dilekçe')">Randevu ve Dilekçe Örnekleri</div>
-                                <div class="text-sm font-bold text-slate-500 hover:text-blue-600 cursor-pointer transition-colors"
-                                    onclick="selectProcess('Oturum İzni')">Oturum İzni</div>
-                                <div class="text-sm font-bold text-slate-500 hover:text-blue-600 cursor-pointer transition-colors"
-                                    onclick="selectProcess('Vatandaşlık İşlemleri')">Vatandaşlık İşlemleri</div>
-                                <div class="text-sm font-bold text-slate-500 hover:text-blue-600 cursor-pointer transition-colors"
-                                    onclick="selectProcess('Pasaport Yenileme')">Pasaport Yenileme</div>
-                            </div>
-                        </div>
-                    </div>
-                     
-                    <div class="relative dropdown-container" id="info-dropdown">
-                        <div
-                            class="selector-box bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hover:border-blue-500 flex items-center justify-between cursor-pointer trigger">
-                            <div class="flex items-center gap-4">
-                                <div
-                                    class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400">
-                                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path
-                                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Bilgi
-                                    </p>
-                                    <p class="text-lg font-extrabold text-blue-950" id="selected-info-name">Seçiniz</p>
-                                </div>
-                            </div>
-                            <svg class="w-5 h-5 text-slate-300 rotate-arrow" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path d="M19 9l-7 7-7-7" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                </path>
-                            </svg>
-                        </div>
-
-                        <div
-                            class="dropdown-menu absolute top-full left-0 right-0 mt-4 bg-white rounded-2xl shadow-2xl border border-slate-100 z-50">
-                            <div class="p-5 space-y-4">
-                                <div class="text-sm font-bold text-slate-500 hover:text-blue-600 border-b border-slate-50 pb-3 cursor-pointer transition-colors"
-                                    onclick="selectInfo('Turistik Vize')">Turistik Vize</div>
-                                <div class="text-sm font-bold text-slate-500 hover:text-blue-600 border-b border-slate-50 pb-3 cursor-pointer transition-colors"
-                                    onclick="selectInfo('Ticari ve İş Vizeleri')">Ticari ve İş Vizeleri</div>
-                                <div class="text-sm font-bold text-slate-500 hover:text-blue-600 border-b border-slate-50 pb-3 cursor-pointer transition-colors"
-                                    onclick="selectInfo('Çalışma Vizeleri')">Çalışma Vizeleri</div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+            <!-- Top Badge -->
+            <div
+                class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-2 mb-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-xs md:text-sm font-medium text-white">
+                    VHS Vize Merkezi, GoMTS Travel (TÜRSAB No: 16419) bünyesinde faaliyet gösteren bir danışmanlık
+                    şirketidir.
+                </span>
             </div>
+
+            <!-- Main Title -->
+            <h1
+                class="text-5xl md:text-7xl font-extrabold text-white mb-4 tracking-tight animate-in fade-in slide-in-from-bottom-6 duration-700 delay-100">
+                VHS Vize Merkezi
+            </h1>
+            <h2
+                class="text-3xl md:text-5xl font-bold text-white/90 mb-10 tracking-tight animate-in fade-in slide-in-from-bottom-6 duration-700 delay-200">
+                Profesyonel Seyahat Danışmanlığı
+            </h2>
+
+            <!-- Info Box -->
+            <div
+                class="max-w-4xl mx-auto border border-white/20 rounded-2xl p-6 bg-white/5 backdrop-blur-sm mb-12 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-300">
+                <p class="text-blue-100/80 text-sm md:text-base leading-relaxed">
+                    VHS Vize Merkezi, resmi konsolosluk veya büyükelçilik değildir. Seyahat sürecinizde yalnızca
+                    rehberlik ve danışmanlık hizmeti sunar.
+                </p>
+            </div>
+
+            <!-- Countries List -->
+            <div class="mb-12 animate-in fade-in slide-in-from-bottom-8 duration-700 delay-400">
+                <p class="text-white/60 text-sm font-medium uppercase tracking-widest mb-3">Tüm Dünya Ülkelerine Hizmet
+                    Veriyoruz</p>
+                <div class="flex flex-wrap justify-center gap-3 text-white font-semibold text-lg">
+                    <span>Avrupa</span>
+                    <span class="text-white/30">•</span>
+                    <span>ABD</span>
+                    <span class="text-white/30">•</span>
+                    <span>İngiltere</span>
+                    <span class="text-white/30">•</span>
+                    <span>Kanada</span>
+                    <span class="text-white/30">•</span>
+                    <span>Dubai</span>
+                    <span class="text-white/30">•</span>
+                    <span>Rusya</span>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div
+                class="flex flex-col sm:flex-row items-center justify-center gap-6 animate-in fade-in slide-in-from-bottom-10 duration-700 delay-500">
+                <a href="hakkimizda.html"
+                    class="min-w-[180px] bg-[#ef4444] text-white px-8 py-4 rounded-xl font-bold hover:bg-red-600 transition-all shadow-lg hover:shadow-red-900/50 flex items-center justify-center gap-2">
+                    Hakkımızda
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+                <a href="hizmetler.html"
+                    class="min-w-[180px] bg-white/10 text-white px-8 py-4 rounded-xl font-bold hover:bg-white/20 transition-all backdrop-blur-md border border-white/10 flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                    Hizmetlerimiz
+                </a>
+            </div>
+
         </div>
     </section>
 
