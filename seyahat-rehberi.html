@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seyahat Rehberi | VHS Vize Danışmanlık Merkezi</title>
+    <meta name="description"
+        content="Dünya genelinde popüler ülkeler için hazırladığımız kapsamlı seyahat rehberi ile vize süreçleri ve seyahat ipuçları hakkında bilgi edinin.">
+    <link rel="shortcut icon" href="assets/img/vhslogo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        blue: { 950: '#0a1229', 900: '#1e293b', 600: '#3b67fe', 500: '#3b82f6', 50: '#f8faff' }
+                    },
+                    borderRadius: {
+                        '4xl': '2.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(10, 18, 41, 0.8), rgba(10, 18, 41, 0.8)), url('https://vhsvizemerkezi.com/assets/img/vizebasvurumerkezi.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .country-card {
+            transition: all 0.3s ease;
+        }
+
+        .country-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-slate-900 overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all duration-300"
+        id="navbar">
+        <div class="container mx-auto px-6 h-auto py-4 flex items-center justify-between">
+            <a href="https://vhsvizemerkezi.com/" class="flex items-center gap-3 group">
+                <img src="https://vhsvizemerkezi.com/assets/img/vhslogo.png" alt="VHS Vize"
+                    class="h-[100px] w-auto object-contain">
+                <span
+                    class="text-lg font-bold text-blue-950 tracking-tight leading-tight group-hover:text-blue-600 transition-colors">
+                    VHS Uluslararası Vize Danışmanlık Hizmetleri
+                </span>
+            </a>
+            <div class="hidden lg:flex items-center gap-10 text-[13px] font-bold uppercase tracking-wider">
+                <a href="https://vhsvizemerkezi.com/"
+                    class="text-slate-500 hover:text-blue-600 transition-colors">Anasayfa</a>
+                <a href="https://vhsvizemerkezi.com/ulkeler"
+                    class="text-slate-500 hover:text-blue-600 transition-colors">Ülkeler</a>
+                <a href="https://vhsvizemerkezi.com/hizmetler"
+                    class="text-slate-500 hover:text-blue-600 transition-colors">Hizmetler</a>
+                <a href="https://vhsvizemerkezi.com/evrak-listesi.html"
+                    class="text-slate-500 hover:text-blue-600 transition-colors">Evrak Listesi</a>
+                <a href="https://vhsvizemerkezi.com/seyahat-rehberi.html" class="text-blue-600">Seyahat Rehberi</a>
+                <a href="https://vhsvizemerkezi.com/hakkimizda"
+                    class="text-slate-500 hover:text-blue-600 transition-colors">Kurumsal</a>
+                <a href="https://vhsvizemerkezi.com/iletisim"
+                    class="text-slate-500 hover:text-blue-600 transition-colors">İletişim</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-blue-950 p-2 focus:outline-none z-50">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[60] bg-white transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-24 px-6 overflow-y-auto w-full h-full">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-blue-950 p-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+        <div class="flex flex-col space-y-6 text-lg font-bold text-center mt-10">
+            <a href="https://vhsvizemerkezi.com/"
+                class="text-blue-950 hover:text-blue-600 py-2 border-b border-gray-100">Anasayfa</a>
+            <a href="https://vhsvizemerkezi.com/ulkeler"
+                class="text-blue-950 hover:text-blue-600 py-2 border-b border-gray-100">Ülkeler</a>
+            <a href="https://vhsvizemerkezi.com/hizmetler"
+                class="text-blue-950 hover:text-blue-600 py-2 border-b border-gray-100">Hizmetler</a>
+            <a href="https://vhsvizemerkezi.com/evrak-listesi.html"
+                class="text-blue-950 hover:text-blue-600 py-2 border-b border-gray-100">Evrak Listesi</a>
+            <a href="https://vhsvizemerkezi.com/seyahat-rehberi.html"
+                class="text-blue-600 py-2 border-b border-gray-100">Seyahat Rehberi</a>
+            <a href="https://vhsvizemerkezi.com/hakkimizda"
+                class="text-blue-950 hover:text-blue-600 py-2 border-b border-gray-100">Kurumsal</a>
+            <a href="https://vhsvizemerkezi.com/iletisim"
+                class="text-blue-950 hover:text-blue-600 py-2 border-b border-gray-100">İletişim</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-bg pt-48 pb-32 text-center text-white">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight">Seyahat Rehberi</h1>
+            <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                Dünya genelinde keşfedilmeyi bekleyen ülkeler için kapsamlı rota önerileri, kültürel ipuçları ve vize
+                süreçleri hakkında ihtiyacınız olan her şey.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="py-24">
+        <div class="container mx-auto px-6">
+
+            <!-- Overall Intro -->
+            <div class="max-w-4xl mx-auto mb-20 text-center">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-blue-950 mb-8">Avrupa ve Dünya Seyahat Rehberi –
+                    Kıtalararası Keşif İçin En Kapsamlı Kaynak</h2>
+                <div class="space-y-6 text-lg text-slate-600 leading-relaxed text-justify">
+                    <p>
+                        Dünyayı keşfetmek, yeni kültürlerle tanışmak ve farklı coğrafyaların sunduğu atmosferi
+                        deneyimlemek, artık her yaştan seyahat severler için bir hayat tarzı haline geldi. Özellikle
+                        vize süreçleri ve her ülkenin kendi dinamikleri bazen bu süreci karmaşık hale getirebiliyor.
+                        Seyahat Rehberi sayfamızda sizler için en güncel vize bilgilerini ve seyahat ipuçlarını
+                        derledik.
+                    </p>
+                    <p>
+                        Bu kapsamlı rehber, seyahat planlama aşamasında ihtiyaç duyulan rota seçimi, şehir önerileri,
+                        kültürel notlar, gerekli seyahat belgeleri, giriş bilgileri, konaklama tüyoları gibi pek çok
+                        konuyu kapsar. Bölüm bölüm organize edilmiş bu içerikte Avrupa'nın 27 farklı ülkesi tek tek
+                        incelenirken; ardından ABD, Rusya, Kanada, Çin, İngiltere ve Dubai gibi dünyanın en popüler
+                        destinasyonlarına da geniş bir bakış sunacağız.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Europe Section -->
+            <div class="mb-24">
+                <div class="text-center mb-16">
+                    <h3
+                        class="text-2xl md:text-3xl font-bold text-blue-950 mb-4 inline-block border-b-4 border-blue-600 pb-2">
+                        Avrupa Ülkeleri Seyahat Rehberi (27 Ülke)</h3>
+                    <p class="text-slate-500 max-w-2xl mx-auto mt-4">Avrupa'nın her biri farklı kültürü, mimarisi,
+                        mutfağı ve atmosferiyle benzersiz bir deneyim sunan ülkelerini keşfedin.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Germany -->
+                    <div
+                        class="country-card bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">🇩🇪</span>
+                            <h4 class="text-xl font-bold text-blue-950">Almanya</h4>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Orta Avrupa'nın kültürel ve ekonomik lokomotifi olan Almanya; Berlin'in modern yaşamı,
+                            Bavyera'nın geleneksel dokusu, Köln'ün katedrali ve Hamburg'un liman kültürüyle her gezgini
+                            kendine çeker.
+                        </p>
+                    </div>
+
+                    <!-- France -->
+                    <div
+                        class="country-card bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">🇫🇷</span>
+                            <h4 class="text-xl font-bold text-blue-950">Fransa</h4>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Romantizmin başkenti Paris'ten gastronomik şölen sunan Lyon'a, rüya gibi kıyılarıyla Fransız
+                            Rivierası'na kadar Fransa, her sokağında sanat ve estetik barındıran büyüleyici bir ülkedir.
+                        </p>
+                    </div>
+
+                    <!-- Italy -->
+                    <div
+                        class="country-card bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">🇮🇹</span>
+                            <h4 class="text-xl font-bold text-blue-950">İtalya</h4>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Tarih, sanat ve lezzetin muazzam bir uyum içinde olduğu İtalya; Roma'nın antik eserleri,
+                            Floransa'nın Rönesans ruhu ve Venedik'in kanallarıyla misafirlerine unutulmaz anlar yaşatır.
+                        </p>
+                    </div>
+
+                    <!-- Spain -->
+                    <div
+                        class="country-card bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">🇪🇸</span>
+                            <h4 class="text-xl font-bold text-blue-950">İspanya</h4>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Flamenko'nun ritmi ve tapas kültürünün canlılığıyla İspanya; Madrid'in görkemi,
+                            Barselona'nın modern mimarisi ve Endülüs'ün tarihi dokusuyla enerjik bir seyahat rotası
+                            sunar.
+                        </p>
+                    </div>
+
+                    <!-- Netherlands -->
+                    <div
+                        class="country-card bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">🇳🇱</span>
+                            <h4 class="text-xl font-bold text-blue-950">Hollanda</h4>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Laleleri, yel değirmenleri ve özgürlükler şehri Amsterdam'ın kanallarıyla ünlü Hollanda,
+                            yeşilin ve mavinin dostça kucaklaştığı, bisiklet kültürünün zirve yaptığı huzurlu bir
+                            ülkedir.
+                        </p>
+                    </div>
+
+                    <!-- Belgium -->
+                    <div
+                        class="country-card bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">🇧🇪</span>
+                            <h4 class="text-xl font-bold text-blue-950">Belçika</h4>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Çikolataları, dantelleri ve Ortaçağ mimarisiyle Belçika; Brüksel'in kozmopolit yapısı,
+                            Brugge'un masalsı atmosferi ve Gent'in sanat dolu sokaklarıyla keşfedilmeyi bekler.
+                        </p>
+                    </div>
+
+                    <!-- Austria -->
+                    <div
+                        class="country-card bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">🇦🇹</span>
+                            <h4 class="text-xl font-bold text-blue-950">Avusturya</h4>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Alplerin eteğinde, klasik müziğin ve valsin anavatanı Avusturya; Viyana'nın sarayları,
+                            Salzburg'un doğal güzellikleri ve kış sporlarıyla her mevsim ayrı bir cazibe sunar.
+                        </p>
+                    </div>
+
+                    <!-- Switzerland -->
+                    <div
+                        class="country-card bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">🇨🇭</span>
+                            <h4 class="text-xl font-bold text-blue-950">İsviçre</h4>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Kristal berraklığında gölleri, karlı dağları ve lüks şehirleri olan İsviçre; Zürih'in
+                            modernliği, Cenevre'nin uluslararası vizyonu ve doğayla iç içe yaşam kalitesiyle
+                            büyüleyicidir.
+                        </p>
+                    </div>
+
+                    <!-- Greece -->
+                    <div
+                        class="country-card bg-slate-50 p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl">
+                        <div class="flex items-center gap-4 mb-6">
+                            <span class="text-4xl">🇬🇷</span>
+                            <h4 class="text-xl font-bold text-blue-950">Yunanistan</h4>
+                        </div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            Antik uygarlığın beşiği, berrak suları ve misafirperverliğiyle komşu Yunanistan; Atina'nın
+                            tarihi mirası ve adaların eşsiz gün batımıyla Ege'nin en sıcak rotalarından biridir.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other World Countries -->
+            <div class="py-16 bg-blue-50/50 rounded-4xl px-8 border border-blue-100">
+                <div class="text-center mb-16">
+                    <h3
+                        class="text-2xl md:text-3xl font-bold text-blue-950 mb-4 inline-block border-b-4 border-blue-600 pb-2">
+                        Diğer Popüler Dünya Ülkeleri Seyahat Rehberi</h3>
+                    <p class="text-slate-500 max-w-2xl mx-auto mt-4">Kıtalar ötesi keşifler için dünyanın en çok ziyaret
+                        edilen destinasyonlarını ve vize gerekliliklerini inceleyin.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- USA -->
+                    <div
+                        class="country-card bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl border border-slate-100">
+                        <h4 class="text-xl font-extrabold text-blue-950 mb-6 flex items-center gap-4">
+                            <span class="text-4xl">🇺🇸</span> Amerika Birleşik Devletleri (ABD)
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed mb-6 text-sm">
+                            New York'un ışıltılı caddelerinden California'nın sörf plajlarına, Florida'nın eğlence
+                            dünyasından Büyük Kanyon'un muazzam manzarasına kadar ABD, tam anlamıyla fırsatlar ve
+                            maceralar ülkesidir.
+                        </p>
+                        <div class="p-4 bg-blue-50 rounded-2xl border border-blue-100">
+                            <p class="text-blue-950 text-xs font-bold uppercase tracking-wider mb-2">Vize Notu:</p>
+                            <p class="text-blue-600 text-xs leading-relaxed">Başvuru süreci detaylı mülakat ve
+                                profesyonel dosya hazırlığı gerektirir.</p>
+                        </div>
+                    </div>
+
+                    <!-- UK -->
+                    <div
+                        class="country-card bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl border border-slate-100">
+                        <h4 class="text-xl font-extrabold text-blue-950 mb-6 flex items-center gap-4">
+                            <span class="text-4xl">🇬🇧</span> İngiltere
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed mb-6 text-sm">
+                            Londra'nın ikonik sembollerinden İskoçya'nın sisli yaylalarına kadar Birleşik Krallık,
+                            asırlık geleneklerin modern yaşamla harmanlandığı, prestijli ve köklü bir seyahat deneyimi
+                            sunar.
+                        </p>
+                        <div class="p-4 bg-blue-50 rounded-2xl border border-blue-100">
+                            <p class="text-blue-950 text-xs font-bold uppercase tracking-wider mb-2">Vize Notu:</p>
+                            <p class="text-blue-600 text-xs leading-relaxed">Schengen vizesinden bağımsız, özel bir
+                                başvuru prosedürü uygulanmaktadır.</p>
+                        </div>
+                    </div>
+
+                    <!-- Canada -->
+                    <div
+                        class="country-card bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl border border-slate-100">
+                        <h4 class="text-xl font-extrabold text-blue-950 mb-6 flex items-center gap-4">
+                            <span class="text-4xl">🇨🇦</span> Kanada
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed mb-6 text-sm">
+                            Muazzam milli parkları, yüksek yaşam standartları ve çok kültürlü yapısıyla Kanada;
+                            Vancouver'ın doğasını Toronto'nun enerjisiyle birleştiren huzurlu ve güvenli bir rotadır.
+                        </p>
+                    </div>
+
+                    <!-- Dubai -->
+                    <div
+                        class="country-card bg-white p-10 rounded-3xl shadow-sm hover:shadow-xl border border-slate-100">
+                        <h4 class="text-xl font-extrabold text-blue-950 mb-6 flex items-center gap-4">
+                            <span class="text-4xl">🇦🇪</span> Dubai (Birleşik Arap Emirlikleri)
+                        </h4>
+                        <p class="text-slate-600 leading-relaxed mb-6 text-sm">
+                            Çölün ortasındaki fütüristik şehir Dubai; lüks alışveriş merkezleri, devasa gökdelenleri ve
+                            yapay adalarıyla modern dünyanın ihtişamını sergileyen benzersiz bir destinasyondur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="mt-24 p-12 bg-blue-950 rounded-4xl text-white relative overflow-hidden text-center">
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <h3 class="text-2xl md:text-3xl font-bold mb-6">Sonuç: Kıtalararası Büyük Seyahat Rehberi</h3>
+                    <p class="text-blue-200/80 leading-relaxed mb-8">
+                        Dünya, keşfedilmeyi bekleyen sayısız güzellikle dolu. İster Avrupa'nın tarihi şehirleri olsun,
+                        ister Uzak Doğu'nun gizemli atmosferi; seyahatiniz boyunca ihtiyaç duyacağınız en önemli şey
+                        doğru bilgi ve hazırlıktır. VHS Vize Danışmanlık olarak seyahat tutkunuzun önündeki engelleri
+                        kaldırmak ve sürecinizi kolaylaştırmak için yanınızdayız.
+                    </p>
+                    <a href="https://vhsvizemerkezi.com/iletisim"
+                        class="inline-block bg-blue-600 text-white px-10 py-4 rounded-xl font-bold hover:bg-white hover:text-blue-950 transition-all shadow-lg">
+                        Seyahatinizi Planlayın
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-950 text-white pt-24 pb-12 border-t border-blue-900">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-20">
+
+                <div class="col-span-1">
+                    <a href="https://vhsvizemerkezi.com/" class="mb-6 block relative group">
+                        <div class="flex items-center gap-3">
+                            <img src="https://vhsvizemerkezi.com/assets/img/vhslogo.png" alt="VHS Vize"
+                                class="h-[100px] w-auto object-contain brightness-0 invert opacity-90 group-hover:opacity-100 transition-opacity">
+                            <span class="text-xl font-bold text-white tracking-tight leading-tight">VHS
+                                Uluslararası Vize Danışmanlık Hizmetleri</span>
+                        </div>
+                    </a>
+                    <p class="text-blue-200/40 text-sm leading-relaxed mb-6">Türkiye merkezli dünya ölçekli vize
+                        operasyon merkezi, mevzuat uyumlu seyehat çözümleri</p>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white mb-8 text-sm uppercase tracking-[0.2em]">İletişim</h5>
+                    <ul class="space-y-4 text-sm text-blue-200/40 font-medium leading-relaxed">
+                        <li>📍 KIZILIRMAK MAH. DUMLUPINAR BLV. NEXTLEVEL NO: 3A ÇANKAYA / ANKARA</li>
+                        <li>📞 0850 611 01 39</li>
+                        <li>✉️ randevu@vhsvizemerkezi.com</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white mb-8 text-sm uppercase tracking-[0.2em]">Hızlı Erişim</h5>
+                    <ul class="space-y-4 text-sm font-semibold text-blue-200/40">
+                        <li><a href="https://vhsvizemerkezi.com/" class="hover:text-white transition-all">Anasayfa</a>
+                        </li>
+                        <li><a href="https://vhsvizemerkezi.com/ulkeler" class="hover:text-white transition-all">
+                                Ülkeler</a></li>
+                        <li><a href="https://vhsvizemerkezi.com/hizmetler"
+                                class="hover:text-white transition-all">Hizmetlerimiz</a></li>
+                        <li><a href="https://vhsvizemerkezi.com/evrak-listesi.html"
+                                class="hover:text-white transition-all">Evrak Listesi</a></li>
+                        <li><a href="https://vhsvizemerkezi.com/seyahat-rehberi.html"
+                                class="hover:text-white transition-all">Seyahat Rehberi</a></li>
+                        <li><a href="https://vhsvizemerkezi.com/hakkimizda"
+                                class="hover:text-white transition-all">Kurumsal</a></li>
+                        <li><a href="https://vhsvizemerkezi.com/vize-danismanligi.html"
+                                class="hover:text-white transition-all">Vize Danışmanlığı</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h5 class="font-bold text-white mb-8 text-sm uppercase tracking-[0.2em]">Vize Türleri</h5>
+                    <ul class="space-y-4 text-sm font-semibold text-blue-200/40">
+                        <li><a href="hizmet/turistik-vize" class="hover:text-white transition-all">Turistik Vizeler</a>
+                        </li>
+                        <li><a href="hizmet/ticari-vize" class="hover:text-white transition-all">Ticari ve İş
+                                Vizeleri</a></li>
+                        <li><a href="hizmet/calisma-vize" class="hover:text-white transition-all">Çalışma Vizeleri</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div
+                class="pt-8 border-t border-blue-900 text-center text-[10px] text-blue-500 uppercase tracking-widest font-black flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>© 2026 VHS Vize Danışmanlık Merkezi </p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-white transition-colors">Gizlilik Politikası</a>
+                    <a href="#" class="hover:text-white transition-colors">KVKK Metni</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white/100', 'shadow-lg');
+                navbar.classList.remove('bg-white/95');
+            } else {
+                navbar.classList.remove('bg-white/100', 'shadow-lg');
+                navbar.classList.add('bg-white/95');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-full');
+        });
+
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('translate-x-full');
+        });
+    </script>
+</body>
+
+</html>
